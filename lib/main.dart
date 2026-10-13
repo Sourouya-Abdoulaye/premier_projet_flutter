@@ -19,45 +19,52 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("My INSTAGRAMME LITE"),
-        backgroundColor: Colors.blueAccent,
-        leading: IconButton(
-          onPressed: () => {print("quel chose a faire")},
-          icon: Icon(Icons.search),
+      appBar: AppBar(title: const Text('Container')),
+      backgroundColor: Colors.grey[200],
+
+      body: Container(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [MaCard(), MaCard(), MaCard()],
         ),
-        actions: [
-          IconButton(
-            onPressed: () => {print("quel chose a de menu")},
-            icon: Icon(Icons.more_vert),
+      ),
+    );
+  }
+}
+
+class MaCard extends StatelessWidget {
+  const MaCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // Taille
+      width: 250,
+      height: 150,
+      // Espace AUTOUR de la boîte
+      margin: const EdgeInsets.all(20),
+      // Espace INTÉRIEUR
+      padding: const EdgeInsets.all(20),
+      // Décorations
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.deepPurple, width: 2),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            blurRadius: 12,
+            offset: const Offset(0, 6),
           ),
         ],
       ),
-      // body: Center(child: Text("Mon instagramme complet")),
-      body: Center(
-        child: Container(
-          width: 200,
-          height: 100,
-          color: const Color.fromARGB(255, 8, 184, 146),
-          alignment: Alignment.center,
-          padding: EdgeInsets.all(20),
-          child: Container(
-            width: 200,
-            height: 100,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              // remplace "color:"
-              color: const Color.fromARGB(255, 175, 9, 64),
-              borderRadius: BorderRadius.horizontal(),
-              // coins arrondis
-              border: Border.all(
-                // bordure
-                color: const Color.fromARGB(255, 7, 19, 187),
-                width: 2,
-              ),
-            ),
-            child: Text('Salut'),
-          ),
+      alignment: Alignment.center,
+      child: const Text(
+        'Salut',
+        style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Colors.deepPurple,
         ),
       ),
     );
